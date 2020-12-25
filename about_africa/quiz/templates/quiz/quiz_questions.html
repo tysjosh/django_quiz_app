@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>Available questions for quiz "{{quiz.title}}"</h2>
+
+    <br>
+
+        <ol>
+             {% for question in questions %}
+                <li><a href="{% url 'question-update' question.id %}">{{question.prompt}}</a></li>
+             {% endfor %}
+        </ol>
+
+
+
+
+{% endblock content %}

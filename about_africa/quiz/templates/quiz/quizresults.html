@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+ <h2>Quiz Results:</h2>
+
+<table class="table">
+        <tr>
+            <th>Quiz</th>
+            <th>User Profile</th>
+            <th>Score</th>
+             <th>Quiz Date</th>
+        </tr>
+        {% for quizresult in quizresults %}
+            <tr>
+                <td>{{quizresult.quiz}}</td>
+                <td>{{quizresult.user_profile}}</td>
+                <td>{{quizresult.score}}</td>
+                <td>{{quizresult.quiz_date}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock  %}
