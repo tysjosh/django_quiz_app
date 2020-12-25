@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="col-lg-8 border border-success p-4 m-4 mx-auto">
+        <form action="" method='POST' role="form">
+            {%csrf_token%}
+
+        {% for question in questions%}
+                <h5>{{question.prompt}}</h5>
+                <div class="radio">
+                <label><input type="radio" name="{{question.pk}}"  value="A">{{question.answer_a}} </label>
+                </div>
+                <div class="radio">
+                <label><input type="radio" name="{{question.pk}}"  value="B">{{question.answer_b}} </label>
+                </div>
+                <div class="radio">
+                <label><input type="radio" name="{{question.pk}}"  value="C">{{question.answer_c}} </label>
+                </div>
+        {%endfor%}
+                <button class="btn form-control btn-success" type="submit">Submit Quiz</button>
+        </form>
+
+</div>
+{% endblock  %}

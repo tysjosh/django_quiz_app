@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<header>
+
+    <table class="table">
+    {% for user in users %}
+        <tr>
+            <td>{{user.user}}</td>
+            <td>{{user.country}}</td>
+            <td>
+                <a href="{% url 'user_detail' user.user_id %}">Details</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock  %}
+

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block  content%}
+<h4>Quiz Finish!</h4>
+
+<p>Name: {{quiz_result.user_profile}}</p>
+<p>Quiz: {{quiz_result.quiz}}</p>
+<p>Score: {{quiz_result.score}}</p>
+
+<hr>
+<p>Congratulations,you have scored {{quiz_result.score}} points </p>
+{% endblock  %}

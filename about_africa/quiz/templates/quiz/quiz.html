@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h2>Available Quizzes:</h2>
+
+    <table class="table">
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Region</th>
+            <th>Creation date</th>
+    
+        </tr>
+        {% for quiz in quizzes %}
+            <tr>
+                <td><a href="{% url 'quiz-detail' quiz.id %}">{{quiz.title}}</a></td>
+                <td>{{quiz.category}}</td>
+                <td>{{quiz.region}}</td>
+                <td>{{quiz.creation_date}}</td>
+            </tr>
+        {% endfor %}  
+    </table>
+
+    {% if perms.quiz.delete_category %}
+        <p> Click <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'category-list'%}">Category</a> to go to category list</p>
+    {%endif%}
+
+    {% if perms.quiz.delete_question%}
+        <p> Click <a class="btn btn-info btn-sm mt-1 mb-1" href="#">Question</a> to go to question list</p>
+    {% endif %}
+
+{% endblock content %}
+            
